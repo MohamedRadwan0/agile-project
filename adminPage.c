@@ -1,6 +1,5 @@
 #include "adminpage.h"
 
-<<<<<<< HEAD
 void account_creation(char *name,int age,char *address,int accountid,int status,
                       float balance,List *l)
 {
@@ -14,8 +13,7 @@ void account_creation(char *name,int age,char *address,int accountid,int status,
     account.balance = balance;
     insertList (0,account,l);
 
-
-=======
+}
 void Make_transaction(int senderid,List *accounts){
     float money=10;
 
@@ -68,7 +66,6 @@ void cahnge_account_status( listNode *node_pointer){
     else{
         printf("Invalid input");
     }
->>>>>>> 870a95dcf381356df53a2a260f35856e42ef599c
 }
 void Get_cash(listNode *node_pointer)
 {
@@ -98,4 +95,54 @@ void Deposit(listNode *node_pointer)
 
     printf("The new balance is: %f :  ", node_pointer->entry.balance);
     printf("\n\n");
+}
+
+void open_exsisting_account(int account_id,List *accounts){
+
+    int number ;
+
+    listNode *node_pointer = search_acc(account_id,accounts);
+    if (node_pointer != NULL){
+        traverseList(accounts,display);
+        printf("Choose of this features: ");
+        printf("\n1. Make transaction");
+        printf("\n2. Change account status");
+        printf("\n3. Get cash");
+        printf("\n4. Deposit in account");
+        printf("\n5. Return to main menu");
+
+
+        scanf("%d", &number);
+        if (number == 1){
+
+            Make_transaction(account_id,accounts);
+        }
+
+        else if (number == 2){
+            cahnge_account_status(node_pointer);
+        }
+
+        else if (number == 3){
+                printf("your balance is %f ",node_pointer->entry.balance );
+            Get_cash(node_pointer);
+        }
+
+        else if (number == 4){
+            Deposit(node_pointer);
+        }
+
+        else if (number == 5){
+            int account_id ;
+            scanf("%d", &account_id);
+            open_exsisting_account(account_id,accounts);
+        }
+        else{
+            printf("Invalid input");
+        }
+
+
+    }
+    else{
+        printf("The account ID is not correct");
+    }
 }
