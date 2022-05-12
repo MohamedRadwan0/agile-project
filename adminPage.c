@@ -70,3 +70,21 @@ void cahnge_account_status( listNode *node_pointer){
     }
 >>>>>>> 870a95dcf381356df53a2a260f35856e42ef599c
 }
+void Get_cash(listNode *node_pointer)
+{
+    float money;
+    printf("Enter the amount you want from this account:\n");
+    scanf("%f", &money);
+    printf("your balance is %f ",node_pointer->entry.balance );
+    if ( node_pointer->entry.balance < money)
+    {
+        printf("Sorry, you don't have enough money in this account \n The transaction is cancelled");
+    }
+    else
+    {
+        node_pointer->entry.balance -= money;
+        printf("The new balance is: %f", node_pointer->entry.balance);
+    }
+    printf("\n\n");
+
+}
