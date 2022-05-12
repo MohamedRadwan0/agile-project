@@ -28,3 +28,28 @@ void Make_transaction(int senderid,List *accounts){
         printf("Sorry, your account is not active");
     }
 }
+
+void cahnge_account_status( listNode *node_pointer){
+    printf("Enter the new status of your account: ");
+    printf("\n1. Active");
+    printf("\n2. Restricted status");
+    printf("\n3. Closed");
+    int status;
+    scanf("%d", &status);
+    if (status ==1 || status ==2 ||status ==3 ){
+        node_pointer->entry.status = status;
+    }
+    if (status == 1){
+        printf("Your account is now active");
+
+    }
+    else if (status == 2){
+        printf("Your account is now restricted");
+    }
+    else if (status == 3){
+        printf("Your account is now closed");
+    }
+    else{
+        printf("Invalid input");
+    }
+}
