@@ -88,3 +88,14 @@ void Get_cash(listNode *node_pointer)
     printf("\n\n");
 
 }
+void Deposit(listNode *node_pointer)
+{
+    float money;
+    printf("Enter the amount you want to deposit:\n");
+    scanf("%f", &money);
+    printf("done");
+    node_pointer->entry.balance += money;
+
+    printf("The new balance is: %f :  ", node_pointer->entry.balance);
+    printf("\n\n");
+}
